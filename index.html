@@ -376,39 +376,26 @@ dialog::backdrop{background:rgba(5,8,18,.65);backdrop-filter:blur(4px)}
     }finally{send.disabled=false}
   });
 })();
+<!-- Dify chatbot -->
+<script>
+  window.difyChatbotConfig = {
+    token: 'YkjSVF3MytaBWbI6',
+    baseUrl: 'https://udify.app',
+    routeSegment: 'agent'
+  };
 </script>
- window.difyChatbotConfig = {
-  token: 'YkjSVF3MytaBWbI6',
-  baseUrl: 'https://udify.app',
-  routeSegment: 'agent',
-  inputs: {
-    // You can define the inputs from the Start node here
-    // key is the variable name
-    // e.g.
-    // name: "NAME"
-  },
-  systemVariables: {
-    // user_id: 'YOU CAN DEFINE USER ID HERE',
-    // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
-  },
-  userVariables: {
-    // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
-    // name: 'YOU CAN DEFINE USER NAME HERE',
-  },
- }
-</script>
-<script
- src="https://udify.app/embed.min.js"
- id="YkjSVF3MytaBWbI6"
- defer>
-</script>
+<script src="https://udify.app/embed.min.js" id="YkjSVF3MytaBWbI6" defer></script>
 <style>
   #dify-chatbot-bubble-button {
     background-color: #1C64F2 !important;
+    z-index: 9999 !important;
   }
   #dify-chatbot-bubble-window {
     width: 24rem !important;
     height: 40rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    max-height: calc(100vh - 6rem) !important;
+    z-index: 9999 !important;
   }
 </style>
 </body>
