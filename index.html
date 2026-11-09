@@ -378,26 +378,25 @@ dialog::backdrop{background:rgba(5,8,18,.65);backdrop-filter:blur(4px)}
 })();
 </script>
 <!-- Dify chatbot -->
-<script>
-  window.difyChatbotConfig = {
-    token: 'YkjSVF3MytaBWbI6',
-    baseUrl: 'https://udify.app',
-    routeSegment: 'agent'
-  };
-</script>
-<script src="https://udify.app/embed.min.js" id="YkjSVF3MytaBWbI6" defer></script>
+<button id="sbs-chat-btn" aria-label="Chat">💬</button>
+<div id="sbs-chat-win" hidden>
+  <iframe src="https://udify.app/agent/YkjSVF3MytaBWbI6" title="Chatbot" allow="microphone"></iframe>
+</div>
 <style>
-  #dify-chatbot-bubble-button {
-    background-color: #1C64F2 !important;
-    z-index: 9999 !important;
-  }
-  #dify-chatbot-bubble-window {
-    width: 24rem !important;
-    height: 40rem !important;
-    max-width: calc(100vw - 2rem) !important;
-    max-height: calc(100vh - 6rem) !important;
-    z-index: 9999 !important;
-  }
+  #sbs-chat-btn{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;border:0;
+    background:#1C64F2;color:#fff;font-size:26px;cursor:pointer;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  #sbs-chat-win{position:fixed;right:20px;bottom:88px;width:24rem;height:40rem;
+    max-width:calc(100vw - 40px);max-height:calc(100vh - 110px);z-index:9999;
+    border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  #sbs-chat-win[hidden]{display:none}
+  #sbs-chat-win iframe{width:100%;height:100%;border:0}
 </style>
+<script>
+  document.getElementById('sbs-chat-btn').addEventListener('click', function(){
+    var w = document.getElementById('sbs-chat-win');
+    w.hidden = !w.hidden;
+    this.textContent = w.hidden ? '💬' : '✕';
+  });
+</script>
 </body>
 </html>
